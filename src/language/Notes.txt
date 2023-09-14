@@ -1,0 +1,86 @@
+
+from :
+1. https://www.youtube.com/@CodingWithJohn -> https://youtu.be/HvPlEJ3LHgE?si=cqnFnwY2esBinaVI
+2. https://www.digitalocean.com/community/tutorials/abstract-class-in-java
+3. google (multiple sources) for different queries and code snippets
+
+
+
+does abstract class need to implement methods of interface it implements ?
+No, abstract classes do not need to implement the methods of an interface they implement. 
+it can choose to provide concrete implementations for some or all of the interface's methods, but it is not required to do so.
+
+
+
+
+In Java, abstract classes, interfaces, and functional interfaces are three different constructs that allow you to define and implement abstract behaviors or contracts within your code. Each has its own distinct features and use cases:
+
+Abstract Classes:
+
+that cannot be instantiated on their own.
+can have both abstract (unimplemented) methods and concrete (implemented) methods.
+abstract methods are declared using the abstract keyword and have no method body. 
+Subclasses must provide concrete implementations for these methods.
+Abstract classes can also contain instance variables, constructors, and other methods.
+They provide a way to share common code and define a base class for other related classes.
+You can use the extends keyword to create a subclass that inherits from an abstract class.
+
+
+abstract class Animal {
+    String name;
+
+    abstract void makeSound();
+
+    void sleep() {
+        System.out.println(name + " is sleeping");
+    }
+}
+
+Interfaces:
+
+that define a set of methods that implementing classes must provide.
+
+until Java 1.7
+implicitly -> 
+	only public abstract methods were allowed  
+	public static final variable were allowed
+since Java 8
+	concrete methods as default and static also allowed
+		abstract non-static method - without implementation
+		default method - with implementation
+		static methos - with implementation
+
+	In Java 8 and later, interfaces can also have default and static methods with implementations.
+A class can implement multiple interfaces, providing concrete implementations for the methods defined in those interfaces.
+Interfaces are useful for achieving multiple inheritance of types in Java.
+Example:
+
+java
+Copy code
+interface Shape {
+    double area();
+
+    double perimeter();
+}
+Functional Interfaces:
+
+A functional interface is a special type of interface that has exactly one abstract method, often referred to as the "functional method" or "SAM" (Single Abstract Method).
+Java 8 introduced the @FunctionalInterface annotation to explicitly mark an interface as functional (though it's not strictly required).
+Functional interfaces are often used with lambda expressions or method references to create concise and readable code for tasks like functional programming, event handling, and more.
+Java provides several built-in functional interfaces like Runnable, Supplier, Consumer, and Predicate in the java.util.function package.
+Example:
+
+java
+Copy code
+@FunctionalInterface
+interface Calculator {
+    int operate(int a, int b);
+}
+In summary, abstract classes provide a way to create base classes with both abstract and concrete methods, interfaces define contracts for classes to implement, and functional interfaces are a special type of interface with a single abstract method, often used for functional programming. Each has its own distinct use cases and can be important in designing and structuring your Java code.
+
+
+
+
+
+
+Regenerate
